@@ -1,1 +1,28 @@
+https://leetcode.com/contest/biweekly-contest-30/problems/reformat-date/
 
+class Solution:
+    def reformatDate(self, date: str) -> str:
+        ar=date.split(" ")
+        m=[ "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+        d={}
+        # print(ar)
+        for i in range(len(m)):
+            if i<9:
+                d[m[i]]="0"+str(i+1)
+            else:
+                d[m[i]]=str(i+1)
+        year=ar[-1]
+        month=d[ar[1]]
+        day=ar[0]
+        dd=[]
+        for sttt in day:
+            dd.append(sttt)
+        dd.pop()
+        dd.pop()
+        
+
+        if len(dd)==1:
+            dd=["0"]+dd
+        # print(dd)
+        return year+"-"+month+"-"+dd[0]+dd[1]
+        
