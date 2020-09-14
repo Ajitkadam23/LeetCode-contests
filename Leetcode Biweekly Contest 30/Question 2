@@ -1,1 +1,20 @@
+https://leetcode.com/contest/biweekly-contest-30/problems/range-sum-of-sorted-subarray-sums/
 
+
+class Solution:
+    def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int:
+        
+        ar=[]
+        for i in range(len(nums)):
+            ar.append(nums[i])
+            sm=nums[i]
+            for j in range(i+1,len(nums)):
+                sm=sm+nums[j]
+                ar.append(sm)
+        ar=sorted(ar)
+        le=left-1
+        right=right-1
+        sm=0
+        for i in range(le,right+1):
+            sm=sm+ar[i]
+        return sm%(10**9+7)
