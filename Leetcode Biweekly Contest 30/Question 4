@@ -1,1 +1,28 @@
+https://leetcode.com/contest/biweekly-contest-30/problems/stone-game-iv/
 
+class Solution:
+    def winnerSquareGame(self, n: int) -> bool:
+        dp=[0]*(n+1)
+        if n==1:
+            return True
+        if n==2:
+            return False
+        dp[1]=1
+        dp[2]=0
+        for i in range(3,n+1):
+            j=1
+            win=0
+            while j*j<=i:
+                x=dp[i-j*j]
+                if dp[x]==0:
+                    dp[i]=1
+                    win=1
+                    break
+                j=j+1
+        # print(dp)
+        if dp[n]==1:
+            return True
+        return False
+                
+            
+            
