@@ -1,1 +1,16 @@
+https://leetcode.com/contest/biweekly-contest-30/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves/
 
+class Solution:
+    def minDifference(self, nums: List[int]) -> int:
+        sa=sorted(nums)
+        one=0
+        if len(nums)<=3:
+            return 0
+        
+        if len(nums)>3:
+            one=abs(sa[-1]-sa[3])
+            two=abs(sa[-4]-sa[0])
+            three=abs(sa[2]-sa[-2])
+            four=abs(sa[1]-sa[-3])
+            five=abs(sa[0]-sa[-4])
+            return min(one,two,three,four,five)
